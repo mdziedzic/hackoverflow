@@ -23,28 +23,27 @@ module.exports = {
   },
 
   newComment: function (request, response, next) {
-   var comment = new Comment(request.body);
-   comment.post = request.post;
-   comment.author = request.body.author;
-   comment.body = request.body.body;
-   comment.created = request.body.created;
-   
-   comment.save(function (err, comment) {
-     if (err) { 
-       return next(err);
-     }
+    var comment = new Comment(request.body);
+    comment.post = request.post;
+    comment.author = request.body.author;
+    comment.body = request.body.body;
+    comment.created = request.body.created;
 
-     request.post.comments.push(comment);
+    comment.save(function (err, comment) {
+      if (err) {
+        return next(err);
+      }
 
-     request.post.save(function(err, post) {
-       if (err) { 
-         return next(err); 
-       }
+      request.post.comments.push(comment);
 
-       response.json(comment);
-     });
-   });
- },
+      request.post.save(function(err, post) {
+        if (err) {
+          return next(err);
+        }
+        response.json(comment);
+      });
+    });
+  },
 
   deleteComment: function (request, response, next) {
     Comment.remove({
@@ -55,18 +54,5 @@ module.exports = {
       }
       response.json({ message: 'Successfully deleted' });
     });
-    }
-
-  // TODO
-  //function ( request, response, next ) {
-  //   var comment = new Post.comments.push(request.body);
-
-  //   comment.save(function(err) {
-  //     if (err) {
-  //       return response.send(err);
-  //     }
-
-  //     response.send({ message: 'Post added!'});
-  //   });
-  // }
+  }
 };

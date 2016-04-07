@@ -2,36 +2,36 @@ var commentController = require('./commentController.js');
 var Post       = require('../posts/postModel.js');
 var Comment    = require('./commentModel.js');
 
-
 module.exports = function (app) {
 
 app.param('comment', function (req, res, next, id) {
 	var query = Comment.findById(id);
 
 	query.exec(function (err, comment) {
-		if (err) { 
-      return next(err); 
+		if (err) {
+      return next(err);
     }
-		
-    if (!comment) { 
-      return next(new Error("can't find comment")); 
+
+    if (!comment) {
+      return next(new Error("can't find comment"));
     }
 
 		req.comment = comment;
 		return next();
 	});
 });
-	// Map logic to route parameter 'post'
+
+// Map logic to route parameter 'post'
 app.param('post', function (req, res, next, id) {
 	var query = Post.findById(id);
 
 	query.exec(function (err, post) {
-		if (err) { 
-      return next(err); 
+		if (err) {
+      return next(err);
     }
-		
-    if (!post) { 
-      return next(new Error("can't find post")); 
+
+    if (!post) {
+      return next(new Error("can't find post"));
     }
 
 		req.post = post;
@@ -39,9 +39,8 @@ app.param('post', function (req, res, next, id) {
 	});
 });
 
-    app.get('/:post/comments', commentController.getComments);
-    app.get('/:post/commentsNumber', commentController.getNumberOfComments);
-    app.post('/:post/comments', commentController.newComment);
-    // app.put('/:id', commentController.editComment);
-    app.delete('/:post/comments/:comment', commentController.deleteComment);
+  app.get('/:post/comments', commentController.getComments);
+  app.get('/:post/commentsNumber', commentController.getNumberOfComments);
+  app.post('/:post/comments', commentController.newComment);
+  app.delete('/:post/comments/:comment', commentController.deleteComment);
 };

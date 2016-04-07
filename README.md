@@ -1,6 +1,6 @@
 # Hack Overflow
 
-> A technical forum for the Hack Reactor Remote Community to share their expertise
+A technical forum for the Hack Reactor Remote Community to share their expertise
 
 ## Team
 
@@ -20,11 +20,11 @@
 
 ## Usage
 
-> Once the app is deployed (or run locally), users should be able to sign in with their GitHub accounts.  They can ask a question in a specific forum, or comment on someone else's question.
+Once the app is deployed (or run locally), users should be able to sign in with their GitHub accounts.  They can ask a question in a specific forum, or comment on someone else's question.
 
 ## Requirements
 
-- Node ^4.0.0 
+- Node ^4.0.0
 
 
 ## Development

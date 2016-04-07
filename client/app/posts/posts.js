@@ -14,13 +14,9 @@ angular.module('hackoverflow.posts', [
   $scope.TimeService = TimeService;
 
   $scope.getPosts = function getPosts(forum) {
-    // TODO: need to pass in forum to Posts.getPosts()
     Posts.getPosts('').then(function (data) {
       $scope.posts = data.data;
-      // this creates an object $scope.numberOfComments that
-      // keeps track of each posts number of comments. not
-      // ideal, but works. need to refactor how we go
-      // about determining the number of comments.
+
       for (var i = 0; i < $scope.posts.length; i++) {
         $scope.posts[i].numberOfComments = $scope.getNumberOfComments($scope.posts[i]._id);
       }

@@ -50,24 +50,20 @@ angular.module('hackoverflow', [
   $stateProvider
     .state('posts', {
       params: {'forum': 'Angular'},
-      // url: '/',
       templateUrl: 'app/posts/posts.html',
       controller: 'PostsController'
     })
     .state('add-post', {
-      // url: '/add-post',
       templateUrl: 'app/posts/add-post.html',
       controller: 'AddPostController'
     })
     .state('edit-post', {
       params: {'post': null},
-      // url: '/edit-post',
       templateUrl: 'app/posts/add-post.html',
       controller: 'EditPostController'
     })
     .state('comments', {
       params: {'post': null},
-      // url: '/comments',
       templateUrl: 'app/comments/comments.html',
       controller: 'CommentsController'
     })
@@ -77,7 +73,6 @@ angular.module('hackoverflow', [
       controller: 'AuthController'
     })
     .state('signup', {
-      // url: '/signup',
       templateUrl: 'app/auth/signup.html',
       controller: 'AuthController'
     });
