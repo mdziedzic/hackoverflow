@@ -2,6 +2,8 @@
 
 A technical forum for the Hack Reactor Remote Community to share their expertise
 
+![alt tag](./screenshot.png "Hack Overflow")
+
 ## Team
 
   - __Product Owner__: Aimee Rosato
